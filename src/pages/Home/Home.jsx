@@ -1,3 +1,4 @@
+import SupplierRcvReportPdf from "../../utils/careboxPdf/SupplierRcvReportPdf";
 import { generatePdfSample } from "../../utils/pdf/generatePdfSample8";
 
 const Home = () => {
@@ -8,7 +9,7 @@ const Home = () => {
           <button
             type="button"
             className="px-[37px] py-[12px] bg-gradient-to-b from-[#D13F96] to-[#833586] text-white rounded-[5px] text-lg font-bold leading-[21.48px] cursor-pointer"
-            onClick={generatePdfSample}
+            onClick={SupplierRcvReportPdf}
           >
             Generate PDF
           </button>

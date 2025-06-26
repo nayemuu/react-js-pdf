@@ -272,7 +272,9 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
 
                     let product_info = [
                       product?.product_name || "",
+                      "-",
                       product?.product_unit || "",
+                      "-",
                       product?.generic_name || "",
                     ].join(" ");
 
@@ -442,7 +444,9 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
 
                 let product_info = [
                   product?.product_name || "",
+                  "-",
                   product?.product_unit || "",
+                  "-",
                   product?.generic_name || "",
                 ].join(" ");
 

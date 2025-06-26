@@ -11,6 +11,7 @@ import {
   COMPANY_NAME,
   FONT_WEIGHT_FOR_COMPANY_NAME,
   FONT_SIZE_FOR_COMPANY_NAME,
+  COMPANY_NAME_Y_POSITION,
   MARGIN_BOTTOM_AFTER_COMPANY_NAME,
   CARE_BOX_ADDRESS,
   FONT_SIZE_FOR_CARE_BOX_ADDRESS,
@@ -22,6 +23,7 @@ import {
   MAXGIN_X,
   MAXGIN_Y,
   FONT_FAMILY,
+  FONT_SIZE_FOR_AUTO_TABLE,
 } from "../../configs/portraitPdfConfigs";
 import { convertDate, convertTime } from "../../ConvertDateTime";
 import { isValidNumber } from "../../dataTypeCheck";
@@ -106,10 +108,16 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
     textXPosition = (pageWidth - textWidth) / 2;
 
     textDimensions = doc.getTextDimensions(COMPANY_NAME);
-    doc.text(COMPANY_NAME, textXPosition, MAXGIN_Y + textDimensions.h);
+    doc.text(
+      COMPANY_NAME,
+      textXPosition,
+      COMPANY_NAME_Y_POSITION + textDimensions.h
+    );
 
     lastYPosition +=
-      MAXGIN_Y + textDimensions.h + MARGIN_BOTTOM_AFTER_COMPANY_NAME;
+      COMPANY_NAME_Y_POSITION +
+      textDimensions.h +
+      MARGIN_BOTTOM_AFTER_COMPANY_NAME;
 
     // Care-Box Address
     doc.setFontSize(FONT_SIZE_FOR_CARE_BOX_ADDRESS);
@@ -178,15 +186,43 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
               `Posted By: ${purchase?.posted_by ? purchase.posted_by : ""}`,
             ],
             [
-              "Dosage Form /Sub Cat.",
-              "Barcode",
-              "Product Information",
-              "Variation Name",
-              "CPU",
-              "Batch",
-              "Received Qty (Variation wise) + Bonus",
-              "Received Qty (In PCS) + Bonus",
-              "Total Value at Cost + Purchase Vat",
+              {
+                content: "Dosage Form /Sub Cat.",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "Barcode",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "Product Information",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "Variation Name",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "CPU",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "Batch",
+                styles: { valign: "middle", halign: "center" },
+              },
+
+              {
+                content: "Received Qty (Variation wise) + Bonus",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "Received Qty (In PCS) + Bonus",
+                styles: { valign: "middle", halign: "center" },
+              },
+              {
+                content: "Total Value at Cost + Purchase Vat",
+                styles: { valign: "middle", halign: "center" },
+              },
             ],
           ];
 
@@ -536,12 +572,12 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
               lineColor: "DCE0E4",
               lineWidth: 0.2,
               valign: "middle",
-              fontSize: 8,
+              fontSize: FONT_SIZE_FOR_AUTO_TABLE,
               font: FONT_FAMILY,
             },
             headStyles: {
               valign: "middle",
-              fontSize: 8,
+              fontSize: FONT_SIZE_FOR_AUTO_TABLE,
               font: FONT_FAMILY,
             },
 

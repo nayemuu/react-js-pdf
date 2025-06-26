@@ -18,6 +18,7 @@ export let LOGO_Y_POSITION = MAXGIN_Y;
 export let COMPANY_NAME = "Care-Box";
 export let FONT_SIZE_FOR_COMPANY_NAME = 20;
 export let FONT_WEIGHT_FOR_COMPANY_NAME = "bold"; //"normal", "bold", "italic", "bolditalic".
+export let COMPANY_NAME_Y_POSITION = MAXGIN_Y;
 export let MARGIN_BOTTOM_AFTER_COMPANY_NAME = 5;
 
 // Care-Box Title
@@ -31,3 +32,6 @@ export let MARGIN_BOTTOM_FOR_CARE_BOX_ADDRESS = 5;
 export let FONT_SIZE_FOR_PDF_TITLE = 14;
 export let FONT_WEIGHT_FOR_PDF_TITLE = "bold"; //"normal", "bold", "italic", "bolditalic".
 export let MARGIN_BOTTOM_FOR_PDF_TITLE = 5;
+
+//jspdf-autotable config
+export let FONT_SIZE_FOR_AUTO_TABLE = 8;

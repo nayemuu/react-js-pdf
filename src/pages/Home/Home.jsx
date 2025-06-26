@@ -2,7 +2,7 @@ import {
   SupplierRcvReportData,
   SupplierRcvReporTitle,
 } from "../../utils/careboxPdf/SupplierRcvReportPdf/SupplierRcvReportData";
-import SupplierRcvReportPdf from "../../utils/careboxPdf/SupplierRcvReportPdf/SupplierRcvReportPdf";
+import SupplierRcvReportPdf from "../../utils/careboxPdf/SupplierRcvReportPdf/SupplierRcvReportPdf2";
 import { generatePdfSample } from "../../utils/pdf/generatePdfSample9";
 
 const Home = () => {

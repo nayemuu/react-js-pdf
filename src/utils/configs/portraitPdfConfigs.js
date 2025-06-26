@@ -2,6 +2,7 @@ import careboxLogo from "../../assets/carebox-logo.png"; // Replace with actual 
 
 // UNIT IN PIXEL
 
+export const FONT_FAMILY = "times";
 export let MAXGIN_X = 18;
 export let MAXGIN_Y = 18;
 

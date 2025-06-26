@@ -19,12 +19,46 @@ import {
   FONT_SIZE_FOR_PDF_TITLE,
   FONT_WEIGHT_FOR_PDF_TITLE,
   MARGIN_BOTTOM_FOR_PDF_TITLE,
+  MAXGIN_X,
   MAXGIN_Y,
+  FONT_FAMILY,
 } from "../../configs/portraitPdfConfigs";
 import { convertDate, convertTime } from "../../ConvertDateTime";
 import { isValidNumber } from "../../dataTypeCheck";
 
+const addFooters = (doc, date, time) => {
+  const pageCount = doc.internal.getNumberOfPages();
+  doc.setFontSize(8);
+  for (var i = 1; i <= pageCount; i++) {
+    doc.setPage(i);
+    doc.text(
+      "Date:" + convertDate(date),
+      MAXGIN_X,
+      doc.internal.pageSize.height - 10
+    );
+    doc.text(
+      "Page " + String(i) + " of " + String(pageCount),
+      doc.internal.pageSize.width / 2,
+      doc.internal.pageSize.height - 10,
+      {
+        align: "center",
+      }
+    );
+
+    let time_string = "Time:" + time;
+
+    doc.text(
+      time_string,
+      doc.internal.pageSize.width -
+        doc.getTextDimensions(time_string).w -
+        MAXGIN_X,
+      doc.internal.pageSize.height - 10
+    );
+  }
+};
+
 const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
+  const date = new Date();
   //   console.log("data = ", data);
 
   if (data?.data?.results?.length) {
@@ -32,8 +66,6 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
   } else {
     return alert("No Data Found");
   }
-
-  const FONT_FAMILY = "times";
 
   const doc = new jsPDF({
     orientation: "portrait",
@@ -518,7 +550,8 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
         });
     });
 
-    doc.save(`test`);
+    addFooters(doc, date.toLocaleDateString(), date.toLocaleTimeString());
+    doc.save(`${pdfTitle}_${date.toLocaleTimeString()}`);
   };
 };
 

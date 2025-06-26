@@ -500,7 +500,7 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
               }
             });
 
-            let singleRowData = [
+            let singleRowDataForTotal = [
               {
                 content: "Total",
                 styles: {
@@ -540,7 +540,7 @@ const SupplierRcvReportPdf = (data, reportTitle, pdfTitle) => {
               },
             ];
 
-            tableRows.push(singleRowData);
+            tableRows.push(singleRowDataForTotal);
           } else {
             tableRows.push([
               {

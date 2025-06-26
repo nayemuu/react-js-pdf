@@ -1,8 +1,13 @@
 import {
   SupplierRcvReportData,
-  SupplierRcvReporTitle,
+  SupplierRcvReportTitle,
 } from "../../utils/careboxPdf/SupplierRcvReportPdf/SupplierRcvReportData";
 import SupplierRcvReportPdf from "../../utils/careboxPdf/SupplierRcvReportPdf/SupplierRcvReportPdf2";
+import {
+  SupplierRcvSummaryReportData,
+  SupplierRcvSummaryReportTitle,
+} from "../../utils/careboxPdf/SupplierRcvSummaryReportPdf/SupplierRcvSummaryReportData";
+import SupplierRcvSummaryReportPdf from "../../utils/careboxPdf/SupplierRcvSummaryReportPdf/SupplierRcvSummaryReportPdf";
 import { generatePdfSample } from "../../utils/pdf/generatePdfSample9";
 
 const Home = () => {
@@ -13,11 +18,19 @@ const Home = () => {
           <button
             type="button"
             className="px-[37px] py-[12px] bg-gradient-to-b from-[#D13F96] to-[#833586] text-white rounded-[5px] text-lg font-bold leading-[21.48px] cursor-pointer"
+            // onClick={() =>
+            //   SupplierRcvReportPdf(
+            //     SupplierRcvReportData,
+            //     SupplierRcvReportTitle,
+            //     SupplierRcvReportTitle
+            //   )
+            // }
+
             onClick={() =>
-              SupplierRcvReportPdf(
-                SupplierRcvReportData,
-                SupplierRcvReporTitle,
-                SupplierRcvReporTitle
+              SupplierRcvSummaryReportPdf(
+                SupplierRcvSummaryReportData,
+                SupplierRcvSummaryReportTitle,
+                SupplierRcvSummaryReportTitle
               )
             }
           >

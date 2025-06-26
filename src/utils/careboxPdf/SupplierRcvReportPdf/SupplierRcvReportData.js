@@ -1534,4 +1534,4 @@ export let SupplierRcvReportData = {
   request: {},
 };
 
-export let SupplierRcvReporTitle = "PURCHASE ORDER CHALLAN";
+export let SupplierRcvReportTitle = "PURCHASE ORDER CHALLAN";
